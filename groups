@@ -1,3 +1,5 @@
-# UUID                                  	Group Name
-#
-d592e13c0520e4926286bd120808069c177d7f5f	openstack/os-faults-distgit-ptl
+# UUID          Group Name
+False 	Non-Interactive Users
+484addc97468f644ff4ba1346bbf4f0e7bc48f00       	openstack/os-faults-distgit-core
+d592e13c0520e4926286bd120808069c177d7f5f        	openstack/os-faults-distgit-ptl
+global:Registered-Users		Registered Users
