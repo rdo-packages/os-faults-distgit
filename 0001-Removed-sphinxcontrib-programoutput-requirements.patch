@@ -1,0 +1,41 @@
+From 3aabed8da40524aa7eb1f1bc1e88d0c8587e5029 Mon Sep 17 00:00:00 2001
+From: Chandan Kumar <chkumar@redhat.com>
+Date: Wed, 9 Nov 2016 11:56:40 +0530
+Subject: [PATCH] Removed sphinxcontrib-programoutput requirements
+
+sphinxcontrib-programoutput is required by os-faults while building
+sphinx doc theme. sphinxcontrib-programoutput is dependent on js-query
+while js-query starts pulling lots of node.js dependency.
+So, this patch removes sphinxcontrib-programoutput dependency.
+---
+ doc/source/conf.py    | 1 -
+ test-requirements.txt | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/doc/source/conf.py b/doc/source/conf.py
+index 4d13f22..4395ac6 100755
+--- a/doc/source/conf.py
++++ b/doc/source/conf.py
+@@ -25,7 +25,6 @@ sys.path.insert(0, os.path.abspath('../..'))
+ extensions = [
+     'sphinx.ext.autodoc',
+     #'sphinx.ext.intersphinx',
+-    'sphinxcontrib.programoutput',
+     'oslosphinx'
+ ]
+ 
+diff --git a/test-requirements.txt b/test-requirements.txt
+index e6c497b..bfd6908 100644
+--- a/test-requirements.txt
++++ b/test-requirements.txt
+@@ -13,7 +13,6 @@ ddt>=1.0.1
+ mock>=1.2
+ python-subunit>=0.0.18
+ sphinx!=1.3b1,<1.4,>=1.2.1 # BSD
+-sphinxcontrib-programoutput
+ oslosphinx>=4.7.0 # Apache-2.0
+ oslotest>=1.10.0 # Apache-2.0
+ testrepository>=0.0.18
+-- 
+2.7.4
+
