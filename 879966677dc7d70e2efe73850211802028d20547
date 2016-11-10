@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5adbc538_3cdd8815",
+        "filename": "python-os-faults.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-11-10T11:37:34Z",
+      "side": 1,
+      "message": "For python3, it should be py.test-3 , executable py.test points to python2.",
+      "range": {
+        "startLine": 248,
+        "startChar": 0,
+        "endLine": 248,
+        "endChar": 7
+      },
+      "revId": "879966677dc7d70e2efe73850211802028d20547",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
