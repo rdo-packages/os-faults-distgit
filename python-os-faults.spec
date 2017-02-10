@@ -10,8 +10,8 @@
 %endif
 
 Name:           python-%{sname}
-Version:        XXX
-Release:        XXX
+Version:        0.1.10
+Release:        1%{?dist}
 Summary:        OpenStack fault-injection library
 
 License:        ASL 2.0
@@ -292,3 +292,6 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc doc/build/html
 
 %changelog
+* Fri Feb 10 2017 Alfredo Moralejo <amoralej@redhat.com> 0.1.10-1
+- Update to 0.1.10
+
