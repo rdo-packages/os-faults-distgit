@@ -295,3 +295,4 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 * Fri Feb 10 2017 Alfredo Moralejo <amoralej@redhat.com> 0.1.10-1
 - Update to 0.1.10
 
+# REMOVEME: error caused by commit https://github.com/openstack/os-faults/commit/746fc4545540a7580311a55f27794c666d2cb784
