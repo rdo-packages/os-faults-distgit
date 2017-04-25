@@ -292,3 +292,4 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc doc/build/html
 
 %changelog
+# REMOVEME: error caused by commit https://github.com/openstack/os-faults/commit/746fc4545540a7580311a55f27794c666d2cb784
