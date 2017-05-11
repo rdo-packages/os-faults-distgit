@@ -20,6 +20,7 @@ URL:            http://git.openstack.org/cgit/openstack/%{sname}
 Source0:        https://tarballs.openstack.org/%{sname}/%{pypi_name}-%{upstream_version}.tar.gz
 BuildArch:      noarch
 
+BuildRequires:  git
 BuildRequires:  python2-devel
 BuildRequires:  python-pbr
 BuildRequires:  python-setuptools
