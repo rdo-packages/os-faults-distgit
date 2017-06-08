@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9aa7fdbe_516327b1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2017-06-08T15:20:47Z",
+      "side": 1,
+      "message": "not sure this works but I know it works the other way around: put depends-on to distgit change in rdoinfo review",
+      "revId": "6b1b16a8b93d2af020971efa365e7c01be0e7a4e",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
