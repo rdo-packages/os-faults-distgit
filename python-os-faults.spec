@@ -11,7 +11,7 @@
 %endif
 
 Name:           python-%{sname}
-Version:        0.1.10
+Version:        0.1.11
 Release:        1%{?dist}
 Summary:        OpenStack fault-injection library
 
@@ -225,6 +225,9 @@ It contains the documentation for OpenStack faultinjection library.
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
 rm -f test-requirements.txt requirements.txt
 
+# Remove pbr>=2.0.0 version as it is required for pike
+sed -i 's/pbr>=2.0.0/pbr/g' setup.py
+
 # sphinxcontrib-programoutput is required by os-faults while building
 # sphinx doc theme. sphinxcontrib-programoutput is dependent on js-query
 # while js-query starts pulling lots of node.js dependency.
@@ -327,6 +330,10 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc doc/build/html
 %endif
 %changelog
+* Thu Jun 08 2017 Chandan Kumar <chkumar@redhat.com> 0.1.11-1
+- Bump to version 0.1.11
+- Remove pbr >= 2.0.0 version from setup.py
+
 * Fri Feb 10 2017 Alfredo Moralejo <amoralej@redhat.com> 0.1.10-1
 - Update to 0.1.10
 
