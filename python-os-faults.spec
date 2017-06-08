@@ -11,7 +11,7 @@
 %endif
 
 Name:           python-%{sname}
-Version:        0.1.10
+Version:        0.1.11
 Release:        1%{?dist}
 Summary:        OpenStack fault-injection library
 
@@ -225,6 +225,9 @@ It contains the documentation for OpenStack faultinjection library.
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
 rm -f test-requirements.txt requirements.txt
 
+# Remove pbr>=2.0.0 version as it is required for pike
+sed -i 's/pbr>=2.0.0/pbr/g' setup.py
+
 # sphinxcontrib-programoutput is required by os-faults while building
 # sphinx doc theme. sphinxcontrib-programoutput is dependent on js-query
 # while js-query starts pulling lots of node.js dependency.
@@ -247,28 +250,24 @@ rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
 %endif
 
 %install
-FAULT_EXEC="os-inject-fault os-faults"
 %if 0%{?with_python3}
 %py3_install
-for binary in $FAULT_EXEC; do
-  cp %{buildroot}/%{_bindir}/$binary %{buildroot}/%{_bindir}/$binary-3
-  ln -sf %{_bindir}/$binary-3 %{buildroot}/%{_bindir}/$binary-%{python3_version}
-done
 # Make executables
 for file in %{buildroot}%{python3_sitelib}/%{pypi_name}/ansible/modules/{freeze,fuel_network_mgmt,iptables,kill}.py; do
    chmod a+x $file
 done
+cp %{buildroot}/%{_bindir}/os-inject-fault %{buildroot}/%{_bindir}/os-inject-fault-3
+ln -sf %{_bindir}/os-inject-fault-3 %{buildroot}/%{_bindir}/os-inject-fault-%{python3_version}
 %endif
 
 %py2_install
-for binary in $FAULT_EXEC; do
-  cp %{buildroot}/%{_bindir}/$binary %{buildroot}/%{_bindir}/$binary-2
-  ln -sf %{_bindir}/$binary-2 %{buildroot}/%{_bindir}/$binary-%{python2_version}
-done
+cp %{buildroot}/%{_bindir}/os-inject-fault %{buildroot}/%{_bindir}/os-inject-fault-2
+ln -sf %{_bindir}/os-inject-fault-2 %{buildroot}/%{_bindir}/os-inject-fault-%{python2_version}
 # Make executables
 for file in %{buildroot}%{python2_sitelib}/%{pypi_name}/ansible/modules/{freeze,fuel_network_mgmt,iptables,kill}.py; do
    chmod a+x $file
 done
+
 
 %check
 py.test -vvvv --durations=10 "os_faults/tests/unit"
@@ -283,9 +282,6 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %{_bindir}/os-inject-fault
 %{_bindir}/os-inject-fault-2
 %{_bindir}/os-inject-fault-%{python2_version}
-%{_bindir}/os-faults
-%{_bindir}/os-faults-2
-%{_bindir}/os-faults-%{python2_version}
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-*-py?.?.egg-info
 %exclude %{python2_sitelib}/%{pypi_name}/tests
@@ -305,8 +301,6 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc README.rst
 %{_bindir}/os-inject-fault-3
 %{_bindir}/os-inject-fault-%{python3_version}
-%{_bindir}/os-faults-3
-%{_bindir}/os-faults-%{python3_version}
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-*-py?.?.egg-info
 %exclude %{python3_sitelib}/%{pypi_name}/tests
@@ -327,6 +321,11 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc doc/build/html
 %endif
 %changelog
+* Thu Jun 08 2017 Chandan Kumar <chkumar@redhat.com> 0.1.11-1
+- Bump to version 0.1.11
+- Remove pbr >= 2.0.0 version from setup.py
+- Removed os-faults binary
+
 * Fri Feb 10 2017 Alfredo Moralejo <amoralej@redhat.com> 0.1.10-1
 - Update to 0.1.10
 
