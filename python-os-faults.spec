@@ -11,7 +11,7 @@
 %endif
 
 Name:           python-%{sname}
-Version:        0.1.10
+Version:        0.1.11
 Release:        1%{?dist}
 Summary:        OpenStack fault-injection library
 
@@ -327,6 +327,9 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc doc/build/html
 %endif
 %changelog
+* Thu Jun 08 2017 rdo-trunk <javier.pena@redhat.com> 0.1.11-1
+- Update to 0.1.11
+
 * Fri Feb 10 2017 Alfredo Moralejo <amoralej@redhat.com> 0.1.10-1
 - Update to 0.1.10
 
