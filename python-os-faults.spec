@@ -238,7 +238,6 @@ sed -i '/sphinx.ext.autosectionlabel/d' doc/source/conf.py
 %py2_build
 
 %if 0%{?with_doc}
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
 %{__python2} setup.py build_sphinx
 rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
 %endif
