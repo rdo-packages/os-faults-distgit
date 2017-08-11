@@ -26,7 +26,6 @@ BuildRequires:  python-pbr
 BuildRequires:  python-setuptools
 # Test requirements
 BuildRequires:  pytest
-BuildRequires:  python-coverage
 BuildRequires:  python-ddt
 BuildRequires:  python-mock
 BuildRequires:  python-subunit
@@ -94,7 +93,6 @@ Summary:         OpenStack fault-injection library
 Requires:        python2-%{sname} = %{version}-%{release}
 
 Requires:        pytest
-Requires:        python-coverage
 Requires:        python-ddt
 Requires:        python-mock
 Requires:        python-subunit
@@ -123,7 +121,6 @@ BuildRequires:  python3-setuptools
 
 # Test requirements
 BuildRequires:  python3-pytest
-BuildRequires:  python3-coverage
 BuildRequires:  python3-ddt
 BuildRequires:  python3-subunit
 BuildRequires:  python3-oslotest
@@ -166,7 +163,6 @@ Summary:         OpenStack fault-injection library
 Requires:        python3-%{sname} = %{version}-%{release}
 
 Requires:        python3-pytest
-Requires:        python3-coverage
 Requires:        python3-ddt
 Requires:        python3-subunit
 Requires:        python3-oslotest
