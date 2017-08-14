@@ -1,0 +1,9 @@
+Code-Review+2: chkumar246 <chkumar@redhat.com>
+Code-Review+2: Javier Peña <jpena@redhat.com>
+Workflow+1: Javier Peña <jpena@redhat.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Mon, 14 Aug 2017 07:31:31 +0000
+Reviewed-on: https://review.rdoproject.org/r/8474
+Project: openstack/os-faults-distgit
+Branch: refs/heads/rpm-master
