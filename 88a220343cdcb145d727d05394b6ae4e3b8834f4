@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_f33ecd28",
+        "filename": "python-os-faults.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2017-08-22T12:29:03Z",
+      "side": 1,
+      "message": "3.10",
+      "range": {
+        "startLine": 67,
+        "startChar": 26,
+        "endLine": 67,
+        "endChar": 31
+      },
+      "revId": "88a220343cdcb145d727d05394b6ae4e3b8834f4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5a890539_133c392f",
+        "filename": "python-os-faults.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2017-08-22T12:29:03Z",
+      "side": 1,
+      "message": "3.10",
+      "range": {
+        "startLine": 150,
+        "startChar": 34,
+        "endLine": 150,
+        "endChar": 39
+      },
+      "revId": "88a220343cdcb145d727d05394b6ae4e3b8834f4",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
