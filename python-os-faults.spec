@@ -54,19 +54,18 @@ different types of cloud deployments. The actions are implemented as drivers
 Summary:        OpenStack fault-injection library
 %{?python_provide:%python_provide python2-%{sname}}
 
-Requires:       python-pbr >= 1.6
-Requires:       ansible >= 2.0
+Requires:       python-pbr >= 2.0.0
+Requires:       ansible >= 2.2
 Requires:       python-appdirs >= 1.3.0
 Requires:       python-jsonschema >= 2.0.0
 Requires:       python-click
-Requires:       python-iso8601 >= 0.1.9
-Requires:       python-oslo-i18n >= 1.5.0
+Requires:       python-iso8601 >= 0.1.11
+Requires:       python-oslo-i18n >= 2.1.0
 Requires:       python-oslo-serialization >= 1.10.0
-Requires:       python-oslo-utils >= 2.4.0
+Requires:       python-oslo-utils >= 3.20.0
 Requires:       python-pyghmi
 Requires:       PyYAML >= 3.1.0
 Requires:       python-six >= 1.9.0
-Requires:       python-setuptools
 
 %description -n python2-%{sname}
  OSFaults **OpenStack faultinjection library**The library does destructive
@@ -138,19 +137,18 @@ BuildRequires:  python3-oslo-serialization
 BuildRequires:  python3-oslo-i18n
 BuildRequires:  python3-click
 
-Requires:       python3-pbr >= 1.6
-Requires:       python3-ansible >= 2.0
+Requires:       python3-pbr >= 2.0.0
+Requires:       python3-ansible >= 2.2
 Requires:       python3-appdirs >= 1.3.0
 Requires:       python3-jsonschema >= 2.0.0
 Requires:       python3-click
-Requires:       python3-iso8601 >= 0.1.9
-Requires:       python3-oslo-i18n >= 1.5.0
+Requires:       python3-iso8601 >= 0.1.11
+Requires:       python3-oslo-i18n >= 2.1.0
 Requires:       python3-oslo-serialization >= 1.10.0
-Requires:       python3-oslo-utils >= 2.4.0
+Requires:       python3-oslo-utils >= 3.20.0
 Requires:       python3-pyghmi
 Requires:       python3-PyYAML >= 3.1.0
 Requires:       python3-six >= 1.9.0
-Requires:       python3-setuptools
 
 %description -n python3-%{sname}
  OSFaults **OpenStack faultinjection library**The library does destructive
