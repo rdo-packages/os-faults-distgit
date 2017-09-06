@@ -283,11 +283,11 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-*-py?.?.egg-info
 %exclude %{python2_sitelib}/%{pypi_name}/tests
-%exclude %{python2_sitelib}/%{pypi_name}/drivers/libvirt_driver.py*
+%exclude %{python2_sitelib}/%{pypi_name}/drivers/power/libvirt.py*
 
 %files -n python2-%{sname}-libvirt
 %license LICENSE
-%{python2_sitelib}/%{pypi_name}/drivers/libvirt_driver.py*
+%{python2_sitelib}/%{pypi_name}/drivers/power/libvirt.py*
 
 %files -n python2-%{sname}-tests
 %license LICENSE
@@ -304,7 +304,7 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %{python3_sitelib}/%{pypi_name}
 %{python3_sitelib}/%{pypi_name}-*-py?.?.egg-info
 %exclude %{python3_sitelib}/%{pypi_name}/tests
-%exclude %{python3_sitelib}/%{pypi_name}/drivers/libvirt_driver.py*
+%exclude %{python3_sitelib}/%{pypi_name}/drivers/power/libvirt.py*
 
 %files -n python3-%{sname}-tests
 %license LICENSE
@@ -312,7 +312,7 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 
 %files -n python3-%{sname}-libvirt
 %license LICENSE
-%{python3_sitelib}/%{pypi_name}/drivers/libvirt_driver.py*
+%{python3_sitelib}/%{pypi_name}/drivers/power/libvirt.py*
 %endif
 
 %if 0%{?with_doc}
