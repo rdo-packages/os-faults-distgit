@@ -10,6 +10,12 @@
 %global with_python3 0
 %endif
 
+%global common_desc \
+OSFaults **OpenStack faultinjection library**The library does destructive \
+actions inside an OpenStack cloud. It provides an abstraction layer over \
+different types of cloud deployments. The actions are implemented as drivers \
+(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+
 Name:           python-%{sname}
 Version:        XXX
 Release:        XXX
@@ -45,10 +51,7 @@ BuildRequires:  python-oslo-i18n
 BuildRequires:  python-click
 
 %description
-OSFaults **OpenStack faultinjection library**The library does destructive
-actions inside an OpenStack cloud. It provides an abstraction layer over
-different types of cloud deployments. The actions are implemented as drivers
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+%{common_desc}
 
 %package -n     python2-%{sname}
 Summary:        OpenStack fault-injection library
@@ -68,10 +71,7 @@ Requires:       PyYAML >= 3.10
 Requires:       python-six >= 1.9.0
 
 %description -n python2-%{sname}
- OSFaults **OpenStack faultinjection library**The library does destructive
-actions inside an OpenStack cloud. It provides an abstraction layer over
-different types of cloud deployments. The actions are implemented as drivers
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+%{common_desc}
 
 %package -n     python2-%{sname}-libvirt
 Summary:        OpenStack fault-injection library libvirt plugin
@@ -80,10 +80,7 @@ Requires:       python2-%{sname} = %{version}-%{release}
 Requires:       libvirt-python
 
 %description -n python2-%{sname}-libvirt
- OSFaults **OpenStack faultinjection library**The library does destructive
-actions inside an OpenStack cloud. It provides an abstraction layer over
-different types of cloud deployments. The actions are implemented as drivers
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+%{common_desc}
 
 It contains libvirt plugin for OpenStack faultinjection library.
 
@@ -102,10 +99,7 @@ Requires:        python-testtools
 Requires:        python-appdirs
 
 %description -n  python2-%{sname}-tests
- OSFaults **OpenStack faultinjection library**The library does destructive
-actions inside an OpenStack cloud. It provides an abstraction layer over
-different types of cloud deployments. The actions are implemented as drivers
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+%{common_desc}
 
 It contains unittests for OpenStack faultinjection library.
 
@@ -151,10 +145,7 @@ Requires:       python3-PyYAML >= 3.10
 Requires:       python3-six >= 1.9.0
 
 %description -n python3-%{sname}
- OSFaults **OpenStack faultinjection library**The library does destructive
-actions inside an OpenStack cloud. It provides an abstraction layer over
-different types of cloud deployments. The actions are implemented as drivers
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+%{common_desc}
 
 %package -n      python3-%{sname}-tests
 Summary:         OpenStack fault-injection library
@@ -170,10 +161,7 @@ Requires:        python3-testtools
 Requires:        python3-appdirs
 
 %description -n  python3-%{sname}-tests
- OSFaults **OpenStack faultinjection library**The library does destructive
-actions inside an OpenStack cloud. It provides an abstraction layer over
-different types of cloud deployments. The actions are implemented as drivers
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+%{common_desc}
 
 It contains unittests for OpenStack faultinjection library.
 
@@ -184,10 +172,7 @@ Requires:       python3-%{sname} = %{version}-%{release}
 Requires:       libvirt-python3
 
 %description -n python3-%{sname}-libvirt
- OSFaults **OpenStack faultinjection library**The library does destructive
-actions inside an OpenStack cloud. It provides an abstraction layer over
-different types of cloud deployments. The actions are implemented as drivers
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+%{common_desc}
 
 It contains libvirt plugin for OpenStack faultinjection library.
 %endif
@@ -208,10 +193,7 @@ BuildRequires:    python-click
 BuildRequires:    python-sphinx_rtd_theme
 
 %description -n python-%{sname}-doc
- OSFaults **OpenStack faultinjection library**The library does destructive
-actions inside an OpenStack cloud. It provides an abstraction layer over
-different types of cloud deployments. The actions are implemented as drivers
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+%{common_desc}
 
 It contains the documentation for OpenStack faultinjection library.
 %endif
