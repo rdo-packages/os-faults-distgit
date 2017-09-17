@@ -49,6 +49,7 @@ BuildRequires:  python-oslo-utils
 BuildRequires:  python-oslo-serialization
 BuildRequires:  python-oslo-i18n
 BuildRequires:  python-click
+BuildRequires:  openstack-macros
 
 %description
 %{common_desc}
@@ -200,7 +201,7 @@ It contains the documentation for OpenStack faultinjection library.
 
 %prep
 %autosetup -n %{pypi_name}-%{upstream_version} -S git
-rm -f test-requirements.txt requirements.txt
+%py_req_cleanup
 
 # sphinxcontrib-programoutput is required by os-faults while building
 # sphinx doc theme. sphinxcontrib-programoutput is dependent on js-query
