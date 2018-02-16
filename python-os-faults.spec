@@ -28,27 +28,27 @@ BuildArch:      noarch
 
 BuildRequires:  git
 BuildRequires:  python2-devel
-BuildRequires:  python-pbr
-BuildRequires:  python-setuptools
+BuildRequires:  python2-pbr
+BuildRequires:  python2-setuptools
 # Test requirements
-BuildRequires:  pytest
-BuildRequires:  python-ddt
-BuildRequires:  python-mock
-BuildRequires:  python-subunit
-BuildRequires:  python-oslotest
-BuildRequires:  python-testrepository
-BuildRequires:  python-testscenarios
-BuildRequires:  python-testtools
-BuildRequires:  python-pyghmi
+BuildRequires:  python2-pytest
+BuildRequires:  python2-ddt
+BuildRequires:  python2-mock
+BuildRequires:  python2-subunit
+BuildRequires:  python2-oslotest
+BuildRequires:  python2-testrepository
+BuildRequires:  python2-testscenarios
+BuildRequires:  python2-testtools
+BuildRequires:  python2-pyghmi
 BuildRequires:  libvirt-python
-BuildRequires:  python-appdirs
-BuildRequires:  python-jsonschema
+BuildRequires:  python2-appdirs
+BuildRequires:  python2-jsonschema
 BuildRequires:  PyYAML
 BuildRequires:  ansible
-BuildRequires:  python-oslo-utils
-BuildRequires:  python-oslo-serialization
-BuildRequires:  python-oslo-i18n
-BuildRequires:  python-click
+BuildRequires:  python2-oslo-utils
+BuildRequires:  python2-oslo-serialization
+BuildRequires:  python2-oslo-i18n
+BuildRequires:  python2-click
 BuildRequires:  openstack-macros
 
 %description
@@ -58,18 +58,18 @@ BuildRequires:  openstack-macros
 Summary:        OpenStack fault-injection library
 %{?python_provide:%python_provide python2-%{sname}}
 
-Requires:       python-pbr >= 2.0.0
+Requires:       python2-pbr >= 2.0.0
 Requires:       ansible >= 2.2
-Requires:       python-appdirs >= 1.3.0
-Requires:       python-jsonschema >= 2.0.0
-Requires:       python-click
-Requires:       python-iso8601 >= 0.1.11
-Requires:       python-oslo-i18n >= 2.1.0
-Requires:       python-oslo-serialization >= 1.10.0
-Requires:       python-oslo-utils >= 3.20.0
-Requires:       python-pyghmi
+Requires:       python2-appdirs >= 1.3.0
+Requires:       python2-jsonschema >= 2.6.0
+Requires:       python2-click
+Requires:       python2-iso8601 >= 0.1.11
+Requires:       python2-oslo-i18n >= 3.15.3
+Requires:       python2-oslo-serialization >= 2.18.0
+Requires:       python2-oslo-utils >= 3.33.0
+Requires:       python2-pyghmi
 Requires:       PyYAML >= 3.10
-Requires:       python-six >= 1.9.0
+Requires:       python2-six >= 1.10.0
 
 %description -n python2-%{sname}
 %{common_desc}
@@ -89,15 +89,15 @@ It contains libvirt plugin for OpenStack faultinjection library.
 Summary:         OpenStack fault-injection library
 Requires:        python2-%{sname} = %{version}-%{release}
 
-Requires:        pytest
-Requires:        python-ddt
-Requires:        python-mock
-Requires:        python-subunit
-Requires:        python-oslotest
-Requires:        python-testrepository
-Requires:        python-testscenarios
-Requires:        python-testtools
-Requires:        python-appdirs
+Requires:        python2-pytest
+Requires:        python2-ddt
+Requires:        python2-mock
+Requires:        python2-subunit
+Requires:        python2-oslotest
+Requires:        python2-testrepository
+Requires:        python2-testscenarios
+Requires:        python2-testtools
+Requires:        python2-appdirs
 
 %description -n  python2-%{sname}-tests
 %{common_desc}
@@ -135,15 +135,15 @@ BuildRequires:  python3-click
 Requires:       python3-pbr >= 2.0.0
 Requires:       python3-ansible >= 2.2
 Requires:       python3-appdirs >= 1.3.0
-Requires:       python3-jsonschema >= 2.0.0
+Requires:       python3-jsonschema >= 2.6.0
 Requires:       python3-click
 Requires:       python3-iso8601 >= 0.1.11
-Requires:       python3-oslo-i18n >= 2.1.0
-Requires:       python3-oslo-serialization >= 1.10.0
-Requires:       python3-oslo-utils >= 3.20.0
+Requires:       python3-oslo-i18n >= 3.15.3
+Requires:       python3-oslo-serialization >= 2.18.0
+Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-pyghmi
 Requires:       python3-PyYAML >= 3.10
-Requires:       python3-six >= 1.9.0
+Requires:       python3-six >= 1.10.0
 
 %description -n python3-%{sname}
 %{common_desc}
@@ -182,15 +182,15 @@ It contains libvirt plugin for OpenStack faultinjection library.
 %package -n python-%{sname}-doc
 Summary:        os_faults documentation
 
-BuildRequires:    python-sphinx
-BuildRequires:    python-appdirs
+BuildRequires:    python2-sphinx
+BuildRequires:    python2-appdirs
 BuildRequires:    PyYAML
 BuildRequires:    ansible
-BuildRequires:    python-oslo-utils
-BuildRequires:    python-oslo-serialization
-BuildRequires:    python-oslo-i18n
-BuildRequires:    python-jsonschema
-BuildRequires:    python-click
+BuildRequires:    python2-oslo-utils
+BuildRequires:    python2-oslo-serialization
+BuildRequires:    python2-oslo-i18n
+BuildRequires:    python2-jsonschema
+BuildRequires:    python2-click
 BuildRequires:    python-sphinx_rtd_theme
 
 %description -n python-%{sname}-doc
