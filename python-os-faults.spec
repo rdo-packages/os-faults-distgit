@@ -17,8 +17,8 @@ different types of cloud deployments. The actions are implemented as drivers \
 (e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
 
 Name:           python-%{sname}
-Version:        XXX
-Release:        XXX
+Version:        0.1.17
+Release:        1%{?dist}
 Summary:        OpenStack fault-injection library
 
 License:        ASL 2.0
@@ -304,3 +304,6 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc doc/build/html
 %endif
 %changelog
+* Tue Feb 20 2018 RDO <dev@lists.rdoproject.org> 0.1.17-1
+- Update to 0.1.17
+
