@@ -18,7 +18,7 @@ different types of cloud deployments. The actions are implemented as drivers \
 
 Name:           python-%{sname}
 Version:        0.1.17
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        OpenStack fault-injection library
 
 License:        ASL 2.0
@@ -45,11 +45,13 @@ BuildRequires:  python2-appdirs
 BuildRequires:  python2-jsonschema
 BuildRequires:  PyYAML
 BuildRequires:  ansible
+BuildRequires:  python2-oslo-concurrency
 BuildRequires:  python2-oslo-utils
 BuildRequires:  python2-oslo-serialization
 BuildRequires:  python2-oslo-i18n
 BuildRequires:  python-click
 BuildRequires:  openstack-macros
+BuildRequires:  /usr/bin/which
 
 %description
 %{common_desc}
@@ -64,12 +66,14 @@ Requires:       python2-appdirs >= 1.3.0
 Requires:       python2-jsonschema >= 2.6.0
 Requires:       python-click
 Requires:       python2-iso8601 >= 0.1.11
+Requires:       python2-oslo-concurrency >= 3.0.0
 Requires:       python2-oslo-i18n >= 3.15.3
 Requires:       python2-oslo-serialization >= 2.18.0
 Requires:       python2-oslo-utils >= 3.33.0
 Requires:       python2-pyghmi
 Requires:       PyYAML >= 3.10
 Requires:       python2-six >= 1.10.0
+Requires:       /usr/bin/which
 
 %description -n python2-%{sname}
 %{common_desc}
@@ -127,6 +131,7 @@ BuildRequires:  python3-appdirs
 BuildRequires:  python3-jsonschema
 BuildRequires:  python3-PyYAML
 BuildRequires:  python3-ansible
+BuildRequires:  python3-oslo-concurrency
 BuildRequires:  python3-oslo-utils
 BuildRequires:  python3-oslo-serialization
 BuildRequires:  python3-oslo-i18n
@@ -138,12 +143,14 @@ Requires:       python3-appdirs >= 1.3.0
 Requires:       python3-jsonschema >= 2.6.0
 Requires:       python3-click
 Requires:       python3-iso8601 >= 0.1.11
+Requires:       python3-oslo-concurrency >= 3.0.0
 Requires:       python3-oslo-i18n >= 3.15.3
 Requires:       python3-oslo-serialization >= 2.18.0
 Requires:       python3-oslo-utils >= 3.33.0
 Requires:       python3-pyghmi
 Requires:       python3-PyYAML >= 3.10
 Requires:       python3-six >= 1.10.0
+Requires:       /usr/bin/which
 
 %description -n python3-%{sname}
 %{common_desc}
@@ -304,6 +311,9 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc doc/build/html
 %endif
 %changelog
+* Thu Nov 29 2018 Yatin Karel <ykarel@redhat.com> - 0.1.17-2
+- Add oslo-concurrency and which as requirement
+
 * Tue Aug 28 2018 RDO <dev@lists.rdoproject.org> 0.1.17-1
 - Update to 0.1.17
 
