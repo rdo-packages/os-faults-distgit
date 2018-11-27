@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_4aff5f34",
+        "filename": "python-os-faults.spec",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-11-27T07:16:26Z",
+      "side": 1,
+      "message": "need to add Requires: /usr/bin/which to python3 subpackage as well[1]. any reason for not adding it?\n\n[1] https://github.com/openstack/os-faults/blob/master/os_faults/ansible/executor.py#L59",
+      "revId": "ce26449500d02e77a074f63711f4f934024b704c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
