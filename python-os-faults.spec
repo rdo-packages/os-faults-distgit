@@ -14,7 +14,7 @@
 OSFaults **OpenStack faultinjection library**The library does destructive \
 actions inside an OpenStack cloud. It provides an abstraction layer over \
 different types of cloud deployments. The actions are implemented as drivers \
-(e.g. DevStack driver, Fuel driver, Libvirt driver, IPMI driver).
+(e.g. DevStack driver, Libvirt driver, IPMI driver).
 
 Name:           python-%{sname}
 Version:        0.1.17
@@ -239,7 +239,7 @@ for binary in $FAULT_EXEC; do
   ln -sf %{_bindir}/$binary-3 %{buildroot}/%{_bindir}/$binary-%{python3_version}
 done
 # Make executables
-for file in %{buildroot}%{python3_sitelib}/%{pypi_name}/ansible/modules/{freeze,fuel_network_mgmt,iptables,kill}.py; do
+for file in %{buildroot}%{python3_sitelib}/%{pypi_name}/ansible/modules/{freeze,iptables,kill}.py; do
    chmod a+x $file
 done
 %endif
@@ -250,7 +250,7 @@ for binary in $FAULT_EXEC; do
   ln -sf %{_bindir}/$binary-2 %{buildroot}/%{_bindir}/$binary-%{python2_version}
 done
 # Make executables
-for file in %{buildroot}%{python2_sitelib}/%{pypi_name}/ansible/modules/{freeze,fuel_network_mgmt,iptables,kill}.py; do
+for file in %{buildroot}%{python2_sitelib}/%{pypi_name}/ansible/modules/{freeze,iptables,kill}.py; do
    chmod a+x $file
 done
 
