@@ -65,6 +65,7 @@ BuildRequires:  python%{pyver}-libvirt
 BuildRequires:  python%{pyver}-PyYAML
 BuildRequires:  ansible-python3
 BuildRequires:  python%{pyver}-click
+BuildRequires:  /usr/bin/pathfix.py
 %endif
 
 %description
@@ -205,6 +206,10 @@ done
 # Make executables
 for file in %{buildroot}%{pyver_sitelib}/%{pypi_name}/ansible/modules/{freeze,iptables,kill}.py; do
    chmod a+x $file
+   %if %{pyver} == 3
+      # Fix shebangs for Python 3-only distros
+      pathfix.py -pni "%{__python3} %{py3_shbang_opts}" $file
+   %endif
 done
 
 %check
