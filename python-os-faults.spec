@@ -63,7 +63,7 @@ BuildRequires:  python-click
 %else
 BuildRequires:  python%{pyver}-libvirt
 BuildRequires:  python%{pyver}-PyYAML
-BuildRequires:  ansible-python3
+BuildRequires:  python3dist(ansible)
 BuildRequires:  python%{pyver}-click
 BuildRequires:  /usr/bin/pathfix.py
 %endif
@@ -96,7 +96,7 @@ Requires:       ansible >= 2.2
 Requires:       python-click
 Requires:       PyYAML >= 3.10
 %else
-Requires:       ansible-python3 >= 2.2
+Requires:       python3dist(ansible) >= 2.2
 Requires:       python%{pyver}-click
 Requires:       python%{pyver}-PyYAML >= 3.10
 %endif
@@ -163,7 +163,7 @@ BuildRequires:    ansible
 %else
 BuildRequires:    python%{pyver}-PyYAML
 BuildRequires:    python%{pyver}-click
-BuildRequires:    ansible-python3
+BuildRequires:    python3dist(ansible)
 %endif
 
 %description -n python-%{sname}-doc
