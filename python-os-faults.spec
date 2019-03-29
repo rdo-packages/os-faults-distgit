@@ -17,8 +17,8 @@ different types of cloud deployments. The actions are implemented as drivers \
 (e.g. DevStack driver, Libvirt driver, IPMI driver).
 
 Name:           python-%{sname}
-Version:        0.1.17
-Release:        2%{?dist}
+Version:        0.2.1
+Release:        1%{?dist}
 Summary:        OpenStack fault-injection library
 
 License:        ASL 2.0
@@ -311,6 +311,9 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %doc doc/build/html
 %endif
 %changelog
+* Thu Mar 28 2019 Steve Linabery <slinaber@redhat.com> - 0.2.1-1
+- Update to 0.2.1
+
 * Thu Nov 29 2018 Yatin Karel <ykarel@redhat.com> - 0.1.17-2
 - Add oslo-concurrency and which as requirement
 
