@@ -204,7 +204,7 @@ for binary in $FAULT_EXEC; do
   ln -s ${binary} %{buildroot}%{_bindir}/${binary}-%{pyver}
 done
 # Make executables
-for file in %{buildroot}%{pyver_sitelib}/%{pypi_name}/ansible/modules/{freeze,iptables,kill}.py; do
+for file in %{buildroot}%{pyver_sitelib}/%{pypi_name}/ansible/modules/{freeze,kill}.py; do
    chmod a+x $file
    %if %{pyver} == 3
       # Fix shebangs for Python 3-only distros
