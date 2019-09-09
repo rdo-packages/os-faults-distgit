@@ -242,3 +242,4 @@ py.test-%{pyver} -vvvv --durations=10 "os_faults/tests/unit"
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/os-faults/commit/?id=3cfdae1ff54ed72796fd4cd6b88d8cf7bedb4046
