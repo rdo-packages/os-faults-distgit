@@ -83,11 +83,11 @@ Requires:       python%{pyver}-appdirs >= 1.3.0
 Requires:       python%{pyver}-jsonschema >= 2.6.0
 Requires:       python%{pyver}-iso8601 >= 0.1.11
 Requires:       python%{pyver}-oslo-concurrency >= 3.0.0
-Requires:       python%{pyver}-oslo-i18n >= 3.15.3
-Requires:       python%{pyver}-oslo-serialization >= 2.18.0
-Requires:       python%{pyver}-oslo-utils >= 3.33.0
+Requires:       python%{pyver}-oslo-i18n >= 2.1.0
+Requires:       python%{pyver}-oslo-serialization >= 1.10.0
+Requires:       python%{pyver}-oslo-utils >= 3.20.0
 Requires:       python%{pyver}-pyghmi
-Requires:       python%{pyver}-six >= 1.10.0
+Requires:       python%{pyver}-six >= 1.9.0
 Requires:       /usr/bin/which
 
 # Handle python2 exception
