@@ -4,6 +4,9 @@
 %global sname os-faults
 %global pypi_name os_faults
 
+%{?dlrn: %global tarsources %{pypi_name}-%{upstream_version}}
+%{!?dlrn: %global tarsources %{sname}}
+
 %global common_desc \
 OSFaults **OpenStack faultinjection library**The library does destructive \
 actions inside an OpenStack cloud. It provides an abstraction layer over \
@@ -17,7 +20,7 @@ Summary:        OpenStack fault-injection library
 
 License:        ASL 2.0
 URL:            http://git.openstack.org/cgit/openstack/%{sname}
-Source0:        https://tarballs.openstack.org/%{sname}/%{pypi_name}-%{upstream_version}.tar.gz
+Source0:        https://opendev.org/performa/%{sname}/archive/%{upstream_version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  git
@@ -133,7 +136,7 @@ It contains the documentation for OpenStack faultinjection library.
 %endif
 
 %prep
-%autosetup -n %{pypi_name}-%{upstream_version} -S git
+%autosetup -n %{tarsources} -S git
 %py_req_cleanup
 
 # The test relies on binary 'ansible-playbook' but ansible-python3
