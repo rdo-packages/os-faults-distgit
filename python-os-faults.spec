@@ -245,3 +245,4 @@ py.test-%{pyver} -vvvv --durations=10 "os_faults/tests/unit"
 * Mon Sep 23 2019 RDO <dev@lists.rdoproject.org> 0.2.5-1
 - Update to 0.2.5
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/os-faults/commit/?id=113ba244f8d085319330f427d262218455564fe7
