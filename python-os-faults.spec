@@ -184,7 +184,7 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %{_bindir}/os-faults
 %{_bindir}/os-faults-3
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-*-py?.?.egg-info
+%{python3_sitelib}/%{pypi_name}-*-py%{python3_version}.egg-info
 %exclude %{python3_sitelib}/%{pypi_name}/tests
 %exclude %{python3_sitelib}/%{pypi_name}/drivers/power/libvirt.py*
 
