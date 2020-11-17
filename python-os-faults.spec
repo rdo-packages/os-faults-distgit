@@ -23,7 +23,7 @@ URL:            http://git.openstack.org/cgit/openstack/%{sname}
 Source0:        https://opendev.org/performa/%{sname}/archive/%{upstream_version}.tar.gz
 BuildArch:      noarch
 
-BuildRequires:  git
+BuildRequires:  git-core
 BuildRequires:  python3-devel
 BuildRequires:  python3-pbr
 BuildRequires:  python3-setuptools
