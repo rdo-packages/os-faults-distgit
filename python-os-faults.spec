@@ -74,7 +74,7 @@ Requires:       /usr/bin/which
 
 Requires:       python3dist(ansible) >= 2.2
 Requires:       python3-click
-Requires:       python3-PyYAML >= 3.10
+Requires:       python3-yaml >= 3.10.0
 
 %description -n python3-%{sname}
 %{common_desc}
