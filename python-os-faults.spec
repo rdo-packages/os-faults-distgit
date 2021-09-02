@@ -48,7 +48,7 @@ BuildRequires:  /usr/bin/which
 
 BuildRequires:  python3-libvirt
 BuildRequires:  python3-PyYAML
-BuildRequires:  python3dist(ansible)
+BuildRequires: (python3dist(ansible) or ansible-core >= 2.11)
 BuildRequires:  python3-click
 BuildRequires:  /usr/bin/pathfix.py
 
@@ -72,7 +72,7 @@ Requires:       python3-pyghmi
 Requires:       python3-six >= 1.9.0
 Requires:       /usr/bin/which
 
-Requires:       python3dist(ansible) >= 2.2
+Requires:       (python3dist(ansible) >= 2.2 or ansible-core >= 2.11)
 Requires:       python3-click
 Requires:       python3-yaml >= 3.10.0
 
@@ -127,7 +127,7 @@ BuildRequires:    python3-sphinx_rtd_theme
 
 BuildRequires:    python3-PyYAML
 BuildRequires:    python3-click
-BuildRequires:    python3dist(ansible)
+BuildRequires: (python3dist(ansible) or ansible-core >= 2.11)
 
 %description -n python-%{sname}-doc
 %{common_desc}
