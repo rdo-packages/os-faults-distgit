@@ -1,4 +1,10 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order pytest-html pytest-logging
+# Exclude sphinx from BRs if docs are disabled
+%if ! 0%{?with_doc}
+%global excluded_brs %{excluded_brs} sphinx openstackdocstheme
+%endif
 %global with_doc %{!?_without_doc:0}%{?_without_doc:1}
 
 %global sname os-faults
@@ -18,38 +24,19 @@ Version:        XXX
 Release:        XXX
 Summary:        OpenStack fault-injection library
 
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            http://git.openstack.org/cgit/openstack/%{sname}
 Source0:        https://opendev.org/performa/%{sname}/archive/%{upstream_version}.tar.gz
 BuildArch:      noarch
 
 BuildRequires:  git-core
 BuildRequires:  python3-devel
-BuildRequires:  python3-pbr
-BuildRequires:  python3-setuptools
-# Test requirements
-BuildRequires:  python3-pytest
-BuildRequires:  python3-ddt
-BuildRequires:  python3-mock
-BuildRequires:  python3-subunit
-BuildRequires:  python3-oslotest
-BuildRequires:  python3-testrepository
-BuildRequires:  python3-testscenarios
-BuildRequires:  python3-testtools
-BuildRequires:  python3-pyghmi
-BuildRequires:  python3-appdirs
-BuildRequires:  python3-jsonschema
-BuildRequires:  python3-oslo-concurrency
-BuildRequires:  python3-oslo-utils
-BuildRequires:  python3-oslo-serialization
-BuildRequires:  python3-oslo-i18n
+BuildRequires:  pyproject-rpm-macros
 BuildRequires:  openstack-macros
 BuildRequires:  /usr/bin/which
 
-BuildRequires:  python3-libvirt
-BuildRequires:  python3-PyYAML
 BuildRequires: (python3dist(ansible) or ansible-core >= 2.11)
-BuildRequires:  python3-click
+
 BuildRequires:  /usr/bin/pathfix.py
 
 %description
@@ -57,36 +44,17 @@ BuildRequires:  /usr/bin/pathfix.py
 
 %package -n     python3-%{sname}
 Summary:        OpenStack fault-injection library
-%{?python_provide:%python_provide python3-%{sname}}
-Obsoletes: python2-%{sname} < %{version}-%{release}
-
-Requires:       python3-pbr >= 2.0.0
-Requires:       python3-appdirs >= 1.3.0
-Requires:       python3-jsonschema >= 2.6.0
-Requires:       python3-iso8601 >= 0.1.11
-Requires:       python3-oslo-concurrency >= 3.0.0
-Requires:       python3-oslo-i18n >= 2.1.0
-Requires:       python3-oslo-serialization >= 1.10.0
-Requires:       python3-oslo-utils >= 3.20.0
-Requires:       python3-pyghmi
-Requires:       python3-six >= 1.9.0
-Requires:       /usr/bin/which
 
 Requires:       (python3dist(ansible) >= 2.2 or ansible-core >= 2.11)
-Requires:       python3-click
-Requires:       python3-yaml >= 3.10.0
+Requires:       /usr/bin/which
 
 %description -n python3-%{sname}
 %{common_desc}
 
 %package -n     python3-%{sname}-libvirt
 Summary:        OpenStack fault-injection library libvirt plugin
-%{?python_provide:%python_provide python3-%{sname}-libvirt}
 
 Requires:       python3-%{sname} = %{version}-%{release}
-
-Requires:       python3-libvirt
-
 
 %description -n python3-%{sname}-libvirt
 %{common_desc}
@@ -95,7 +63,6 @@ It contains libvirt plugin for OpenStack faultinjection library.
 
 %package -n      python3-%{sname}-tests
 Summary:         OpenStack fault-injection library
-%{?python_provide:%python_provide python3-%{sname}-tests}
 Requires:        python3-%{sname} = %{version}-%{release}
 
 Requires:        python3-pytest
@@ -117,18 +84,6 @@ It contains unittests for OpenStack faultinjection library.
 %package -n python-%{sname}-doc
 Summary:        os_faults documentation
 
-BuildRequires:    python3-sphinx
-BuildRequires:    python3-appdirs
-BuildRequires:    python3-oslo-utils
-BuildRequires:    python3-oslo-serialization
-BuildRequires:    python3-oslo-i18n
-BuildRequires:    python3-jsonschema
-BuildRequires:    python3-sphinx_rtd_theme
-
-BuildRequires:    python3-PyYAML
-BuildRequires:    python3-click
-BuildRequires: (python3dist(ansible) or ansible-core >= 2.11)
-
 %description -n python-%{sname}-doc
 %{common_desc}
 
@@ -137,7 +92,6 @@ It contains the documentation for OpenStack faultinjection library.
 
 %prep
 %autosetup -n %{tarsources} -S git
-%py_req_cleanup
 
 # The test relies on binary 'ansible-playbook' but ansible-python3
 # in Fedora doesn't provide it, so need to hack test file.
@@ -147,21 +101,44 @@ sed -i 's/ansible-playbook/ansible-playbook-3/' os_faults/ansible/executor.py
 # sphinx doc theme. sphinxcontrib-programoutput is dependent on js-query
 # while js-query starts pulling lots of node.js dependency.
 # So, removing sphinxcontrib-programoutput dependency.
-
 sed -i '/sphinxcontrib.programoutput/d' doc/source/conf.py
 sed -i '/sphinx.ext.autosectionlabel/d' doc/source/conf.py
 
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+sed -i 's/--html=[^\ ]*//;s/--self-contained-html//' tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+# Automatic BR generation
+%generate_buildrequires
+%if 0%{?with_doc}
+  %pyproject_buildrequires -t -e %{default_toxenv},docs
+%else
+  %pyproject_buildrequires -t -e %{default_toxenv}
+%endif
+
 %build
-%{py3_build}
+%pyproject_wheel
 
 %if 0%{?with_doc}
-%{__python3} setup.py build_sphinx
-rm -fr doc/build/html/.doctrees doc/build/html/.buildinfo
+%tox -e docs
+rm -rf doc/build/html/.{doctrees,buildinfo}
 %endif
 
 %install
+%pyproject_install
+
 FAULT_EXEC="os-inject-fault os-faults"
-%{py3_install}
 for binary in $FAULT_EXEC; do
   # Create a versioned binary for backwards compatibility until everything is pure py3
   ln -s ${binary} %{buildroot}%{_bindir}/${binary}-3
@@ -174,7 +151,7 @@ for file in %{buildroot}%{python3_sitelib}/%{pypi_name}/ansible/modules/{freeze,
 done
 
 %check
-py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
+%tox -e %{default_toxenv}
 
 %files -n python3-%{sname}
 %license LICENSE
@@ -184,7 +161,7 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 %{_bindir}/os-faults
 %{_bindir}/os-faults-3
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-*-py%{python3_version}.egg-info
+%{python3_sitelib}/%{pypi_name}-*.dist-info
 %exclude %{python3_sitelib}/%{pypi_name}/tests
 %exclude %{python3_sitelib}/%{pypi_name}/drivers/power/libvirt.py*
 
