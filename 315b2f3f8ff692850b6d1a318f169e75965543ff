@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3226073_711ab776",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-07-07T07:36:24Z",
+      "side": 1,
+      "message": "The libvirt driver import the libvirt module but it\u0027s not required in requirementst nor as extra. So we\u0027ll have to keep it as explicit Requires and BR in SPEC file",
+      "revId": "315b2f3f8ff692850b6d1a318f169e75965543ff",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
