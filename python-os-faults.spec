@@ -36,7 +36,6 @@ BuildRequires:  openstack-macros
 BuildRequires:  /usr/bin/which
 BuildRequires:  python3-libvirt
 BuildRequires:  (python3dist(ansible) or ansible-core >= 2.11)
-BuildRequires:  /usr/bin/pathfix.py
 
 %description
 %{common_desc}
@@ -146,8 +145,8 @@ done
 # Make executables
 for file in %{buildroot}%{python3_sitelib}/%{pypi_name}/ansible/modules/{freeze,kill}.py; do
    chmod a+x $file
-      # Fix shebangs for Python 3-only distros
-      pathfix.py -pni "%{__python3} %{py3_shbang_opts}" $file
+   # Fix shebangs for Python 3-only distros
+   %py3_shebang_fix $file
 done
 
 %check
