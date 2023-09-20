@@ -16,6 +16,23 @@
       "message": "This is needed for https://review.rdoproject.org/r/c/openstack/rally-openstack-distgit/+/49909",
       "revId": "d7e7b4ea1bd1e552e1b25da90fcfb19baaffc0cc",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef7bbeca_74d64e4b",
+        "filename": "python-os-faults.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2023-09-20T07:50:39Z",
+      "side": 1,
+      "message": "nit: %global sname var could be used here",
+      "revId": "d7e7b4ea1bd1e552e1b25da90fcfb19baaffc0cc",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
