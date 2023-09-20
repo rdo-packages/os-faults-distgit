@@ -10,9 +10,6 @@
 %global sname os-faults
 %global pypi_name os_faults
 
-%{?dlrn: %global tarsources %{pypi_name}-%{upstream_version}}
-%{!?dlrn: %global tarsources %{sname}}
-
 %global common_desc \
 OSFaults **OpenStack faultinjection library**The library does destructive \
 actions inside an OpenStack cloud. It provides an abstraction layer over \
@@ -25,8 +22,8 @@ Release:        XXX
 Summary:        OpenStack fault-injection library
 
 License:        Apache-2.0
-URL:            http://git.openstack.org/cgit/openstack/%{sname}
-Source0:        https://opendev.org/performa/%{sname}/archive/%{upstream_version}.tar.gz
+URL:            https://opendev.org/performa/os-faults
+Source0:        %{pypi_source}
 BuildArch:      noarch
 
 BuildRequires:  git-core
@@ -90,7 +87,7 @@ It contains the documentation for OpenStack faultinjection library.
 %endif
 
 %prep
-%autosetup -n %{tarsources} -S git
+%autosetup -n %{pypi_name}-%{upstream_version} -S git
 
 # The test relies on binary 'ansible-playbook' but ansible-python3
 # in Fedora doesn't provide it, so need to hack test file.
