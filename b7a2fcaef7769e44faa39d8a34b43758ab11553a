@@ -16,6 +16,24 @@
       "message": "It looks ok for DLRN RPM\n\n# rpm -qp --provides https://logserver.rdoproject.org/05/50105/1/check/DLRN-rpmbuild-centos9/9171a02/buildset/centos9/current/python3-os-faults-0.2.7-0.20230920072824.113ba24.el9.noarch.rpm\npython-os-faults \u003d 0.2.7-0.20230920072824.113ba24.el9\npython3-os-faults \u003d 0.2.7-0.20230920072824.113ba24.el9\npython3.9-os-faults \u003d 0.2.7-0.20230920072824.113ba24.el9\npython3.9dist(os-faults) \u003d 0.2.7\npython3dist(os-faults) \u003d 0.2.7",
       "revId": "b7a2fcaef7769e44faa39d8a34b43758ab11553a",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaf06dfa_fd326981",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-09-20T07:43:02Z",
+      "side": 1,
+      "message": "It\u0027s also ok for the CBS build with [1][2]\n\nrpm -qp --provides https://cbs.centos.org/kojifiles/work/tasks/7887/3607887/python3-os-faults-0.2.7-2.noarch.rpm\npython-os-faults \u003d 0.2.7-2\npython3-os-faults \u003d 0.2.7-2\npython3.9-os-faults \u003d 0.2.7-2\npython3.9dist(os-faults) \u003d 0.2.7\npython3dist(os-faults) \u003d 0.2.7\n\n\n[1] https://review.rdoproject.org/r/c/openstack/os-faults-distgit/+/50106\n[2] https://cbs.centos.org/koji/taskinfo?taskID\u003d3607887",
+      "parentUuid": "190de854_d3557340",
+      "revId": "b7a2fcaef7769e44faa39d8a34b43758ab11553a",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
