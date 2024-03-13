@@ -176,3 +176,4 @@ done
 %endif
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/os-faults/commit/113ba244f8d085319330f427d262218455564fe7
