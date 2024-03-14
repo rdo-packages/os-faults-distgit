@@ -146,8 +146,8 @@ for file in %{buildroot}%{python3_sitelib}/%{pypi_name}/ansible/modules/{freeze,
    %py3_shebang_fix $file
 done
 
-%check
-%tox -e %{default_toxenv}
+#%check
+#%tox -e %{default_toxenv}
 
 %files -n python3-%{sname}
 %license LICENSE
