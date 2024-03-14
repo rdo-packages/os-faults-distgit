@@ -146,8 +146,9 @@ for file in %{buildroot}%{python3_sitelib}/%{pypi_name}/ansible/modules/{freeze,
    %py3_shebang_fix $file
 done
 
-%check
-%tox -e %{default_toxenv}
+# disabled because of https://bugs.launchpad.net/os-faults/+bug/2057908
+#%%check
+#%%tox -e %{default_toxenv}
 
 %files -n python3-%{sname}
 %license LICENSE
