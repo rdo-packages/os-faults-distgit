@@ -39,6 +39,30 @@
       },
       "revId": "d0a98a5b8ccd197fae55fe502571470deca11e35",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df8b8536_804e8a4e",
+        "filename": "python-os-faults.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2024-03-14T10:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b78989a5_0a575860",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 150,
+        "endChar": 26
+      },
+      "revId": "d0a98a5b8ccd197fae55fe502571470deca11e35",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
