@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8063803a_acd0fc67",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2024-03-14T09:37:48Z",
+      "side": 1,
+      "message": "you might want this in caracal-rdo branch I guess",
+      "revId": "d0a98a5b8ccd197fae55fe502571470deca11e35",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b78989a5_0a575860",
