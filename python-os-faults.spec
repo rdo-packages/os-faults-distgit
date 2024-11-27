@@ -206,3 +206,4 @@ py.test-3 -vvvv --durations=10 "os_faults/tests/unit"
 * Mon Mar 14 2022 RDO <dev@lists.rdoproject.org> 0.2.7-1
 - Update to 0.2.7
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/os-faults/commit/25b7d106a8cbe705322a0cb61f9391a625ebf98f
